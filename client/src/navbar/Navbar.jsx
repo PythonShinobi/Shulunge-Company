@@ -2,12 +2,15 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, IconButton, Button, Menu, MenuItem, useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link, useLocation } from 'react-router-dom'; // Import useLocation from react-router-dom
+
+import "./Navbar.css";
 
 const Navbar = () => {
   const theme = useTheme();
   // Checks if screen width is less than or equal to 'sm'(small)
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const location = useLocation(); // Get the current location pathname
 
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -17,6 +20,11 @@ const Navbar = () => {
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+  };
+
+  // Function to check if a link is active based on pathname
+  const isLinkActive = (link) => {
+    return location.pathname === link;
   };
 
   return (
@@ -43,10 +51,10 @@ const Navbar = () => {
           {/* Desktop Menu */}
           {!isMobile && (
             <div sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <Button color="inherit" component={Link} to="/">Home</Button>
-              <Button color="inherit" component={Link} to="/about">About</Button>
-              <Button color="inherit" component={Link} to="/services">Services</Button>
-              <Button color="inherit" component={Link} to="/contact">Contact</Button> {/* Linked to Contact page */}
+              <Button color="inherit" component={Link} to="/" sx={isLinkActive('/') ? { fontWeight: 'bold', color: '#FFC107' } : {}}>Home</Button>
+              <Button color="inherit" component={Link} to="/about" sx={isLinkActive('/about') ? { fontWeight: 'bold', color: '#FFC107' } : {}}>About</Button>
+              <Button color="inherit" component={Link} to="/services" sx={isLinkActive('/services') ? { fontWeight: 'bold', color: '#FFC107' } : {}}>Services</Button>
+              <Button color="inherit" component={Link} to="/contact" sx={isLinkActive('/contact') ? { fontWeight: 'bold', color: '#FFC107' } : {}}>Contact</Button>
             </div>
           )}
           {/* Mobile Menu */}
@@ -63,10 +71,10 @@ const Navbar = () => {
               horizontal: 'right',
             }}
           >
-            <MenuItem component={Link} to="/" onClick={handleMenuClose}>Home</MenuItem>
-            <MenuItem component={Link} to="/about" onClick={handleMenuClose}>About</MenuItem>
-            <MenuItem component={Link} to="/services" onClick={handleMenuClose}>Services</MenuItem>
-            <MenuItem component={Link} to="/contact" onClick={handleMenuClose}>Contact</MenuItem> {/* Linked to Contact page */}
+            <MenuItem component={Link} to="/" sx={isLinkActive('/') ? { fontWeight: 'bold', color: '#FFC107' } : {}} onClick={handleMenuClose}>Home</MenuItem>
+            <MenuItem component={Link} to="/about" sx={isLinkActive('/about') ? { fontWeight: 'bold', color: '#FFC107' } : {}} onClick={handleMenuClose}>About</MenuItem>
+            <MenuItem component={Link} to="/services" sx={isLinkActive('/services') ? { fontWeight: 'bold', color: '#FFC107' } : {}} onClick={handleMenuClose}>Services</MenuItem>
+            <MenuItem component={Link} to="/contact" sx={isLinkActive('/contact') ? { fontWeight: 'bold', color: '#FFC107' } : {}} onClick={handleMenuClose}>Contact</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>
