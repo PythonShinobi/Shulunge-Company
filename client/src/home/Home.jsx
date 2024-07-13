@@ -25,42 +25,42 @@ const services = [
     title: "Accounting & Bookkeeping Services",
     description:
       "We provide comprehensive accounting and bookkeeping services to ensure your financial records are accurate and up-to-date.",
-    link: "/accounting",
+    link: "/services/accounting",
     image: bookKeeping,
   },
   {
-    title: "Taxation & Tax compliance services",
+    title: "Taxation & Tax Compliance Services",
     description:
       "Our tax experts help you navigate through complex tax regulations and ensure compliance with all tax requirements.",
-    link: "/taxation",
+    link: "/services/taxation",
     image: taxation,
   },
   {
     title: "Payroll Services",
     description:
       "We offer payroll services to manage your employee salaries, wages, bonuses, and deductions efficiently.",
-    link: "/payroll",
+    link: "/services/payroll",
     image: payroll,
   },
   {
     title: "Kenyan Diaspora Tax Services",
     description:
       "Specialized tax services for Kenyans living abroad, ensuring they meet their tax obligations both locally and internationally.",
-    link: "/diaspora-tax",
+    link: "/services/diaspora-tax",
     image: taxServices,
   },
   {
     title: "Secretarial Services",
     description:
       "Our secretarial services include company formation, compliance, and maintaining statutory records.",
-    link: "/secretarial",
+    link: "/services/secretarial",
     image: secretary,
   },
   {
     title: "Immigration Services",
     description:
       "We provide assistance with immigration processes, including visa applications and work permits.",
-    link: "/immigration",
+    link: "/services/immigration",
     image: immigration,
   },
 ];
