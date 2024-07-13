@@ -25,7 +25,7 @@ const services = [
     title: "Accounting & Bookkeeping Services",
     description:
       "We provide comprehensive accounting and bookkeeping services to ensure your financial records are accurate and up-to-date.",
-    link: "/services/accounting",
+    link: "/services/book-keeping",
     image: bookKeeping,
   },
   {
@@ -43,10 +43,10 @@ const services = [
     image: payroll,
   },
   {
-    title: "Kenyan Diaspora Tax Services",
+    title: "Tax Services",
     description:
       "Specialized tax services for Kenyans living abroad, ensuring they meet their tax obligations both locally and internationally.",
-    link: "/services/diaspora-tax",
+    link: "/services/tax-services",
     image: taxServices,
   },
   {
