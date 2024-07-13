@@ -13,6 +13,7 @@ import Payroll from './services-page/pages/Payroll';
 import TaxServices from './services-page/pages/TaxServices';
 import Secretarial from './services-page/pages/SecreterialServices';
 import Immigration from './services-page/pages/Immigration';
+import PageNotFound from './404-page/PageNotFound';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route path='/services/tax-services' element={<TaxServices />}/>
           <Route path='/services/secretarial' element={<Secretarial />}/>
           <Route path='/services/immigration' element={<Immigration />}/>
+          <Route path='/services/*' element={<PageNotFound />}/>
       </Routes>
     </BrowserRouter>
   );
