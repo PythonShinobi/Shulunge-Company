@@ -48,6 +48,16 @@ const AboutUs = () => {
   const [isSmallDevice, setIsSmallDevice] = useState(false);
 
   useEffect(() => {
+    const handleScrollToTop = () => {
+      window.scrollTo(0, 0);
+    };
+
+    // Scroll to the top when component mounts
+    handleScrollToTop();
+
+    // Add event listener to handle popstate when navigating back
+    window.addEventListener("popstate", handleScrollToTop);
+
     const handleResize = () => {
       setIsSmallDevice(window.innerWidth <= 768); // Adjust the breakpoint as needed
     };
@@ -58,11 +68,12 @@ const AboutUs = () => {
     // Listen to window resize events
     window.addEventListener('resize', handleResize);
 
-    // Clean up
+    // Clean up event listeners on component unmount
     return () => {
+      window.removeEventListener("popstate", handleScrollToTop);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, []);  
 
   return (
     <div>

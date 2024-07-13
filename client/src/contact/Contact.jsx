@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TextField, Button, Container, Typography, Grid, Box } from '@mui/material';
 import { LocationOn, Phone, PhoneAndroid } from '@mui/icons-material';
@@ -8,6 +8,23 @@ import Navbar from '../navbar/Navbar';
 import Footer from '../footer/Footer';
 
 const ContactForm = () => {
+  useEffect(() => {
+    // Scroll to the top when component mounts
+    window.scrollTo(0, 0);
+
+    // Optionally, you can add an event listener to handle navigation back
+    const handleScrollToTop = () => {
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener("popstate", handleScrollToTop);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("popstate", handleScrollToTop);
+    };
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
